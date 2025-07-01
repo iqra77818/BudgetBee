@@ -38,7 +38,7 @@ const changedPasswordSuccess = (user, EMAIL_FROM) => {
                                             <a href="https://github.com/Prakashsaw" style="margin: 0 10px; text-decoration: none;">
                                                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="24" height="24" />
                                             </a>
-                                            <a href="https://prakashsawportfolio.netlify.app/" style="margin: 0 10px; text-decoration: none;">
+                                            <a href="http://localhost:3000/" style="margin: 0 10px; text-decoration: none;">
                                                 <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Website" width="24" height="24" />
                                             </a>
                                         </div>

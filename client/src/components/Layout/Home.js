@@ -20,7 +20,7 @@ const Home = () => {
         <div className="home">
           <section className="hero-section">
             <div className="hero">
-              <h2>Welcome to Expense Management System</h2>
+              <h2>Welcome to BudgetBee</h2>
               <p>
                 Welcone to the{" "}
                 <span className="app-name">Expense management System </span>App.
@@ -41,9 +41,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            <div className="img">
-              <img src={homepageImg} alt="homepage-img" />
-            </div>
+            
           </section>
         </div>
       </div>

@@ -17,7 +17,7 @@ const Header1 = () => {
       <nav className="navbar navbar-expand-lg bg-dark sticky-top">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo" />
-          Expense Management System
+          BudgetBee
         </Link>
         <div className="container-fluid">
           <button
