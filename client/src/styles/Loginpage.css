@@ -45,14 +45,14 @@
 }
 
 .login-form .button button {
-  background-color: #344265;
+  background-color: black;
   color: white;
   outline: none;
   width: 100%;
 }
 
 .login-form .button button:hover {
-  background-color: green;
+  background-color: darkgray;
   color: white;
 }
 

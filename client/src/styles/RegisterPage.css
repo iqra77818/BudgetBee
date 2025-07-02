@@ -46,14 +46,14 @@
 }
 
 .register-form .button button {
-  background-color: #344265;
+  background-color: blacks;
   color: white;
   outline: none;
   width: 100%;
 }
 
 .register-form .button button:hover {
-  background-color: green;
+  background-color: darkgray;
   color: white;
 }
 

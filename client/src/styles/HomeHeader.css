@@ -37,14 +37,14 @@
 }
 
 .navbar .nav-link .register-btn {
-  background: #0e4fb0;
-  border: 1px solid #0e4fb0;
-  color: white;
+  background: #c4d2dc;
+  border: 1px solid ;
+  color: black;
 }
 
 .navbar .nav-link .register-btn:hover {
-  background: #1376da;
-  color: white;
+  background: #e3f2fd;
+  color: black;
 }
 
 .navbar .user-home-btn a {

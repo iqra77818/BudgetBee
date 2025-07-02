@@ -22,14 +22,10 @@ const Home = () => {
             <div className="hero">
               <h2>Welcome to BudgetBee</h2>
               <p>
-                Welcone to the{" "}
-                <span className="app-name">Expense management System </span>App.
-                This app helps you to manage your expenses and income. You can
-                track your expenses and income, add new expenses and income,
-                update and delete expenses and income. You can also see the
-                statistics of your expenses and income. Visualize your expenses
-                in a chart and graph. By using this app, you can manage your
-                expenses and income and save your money from unwanted expenses.
+Take control of your finances with the Expense Management System App where every expense and income tells a story. 
+Easily track, edit, and manage your money, while visual charts and smart stats give you a clear view of your financial habits. 
+Cut the clutter, spot the trends, and start saving with confidence. Managing money has never felt this effortless.
+
               </p>
               <div className="buttons">
                 <Link to="/login" className="join">
