@@ -19,7 +19,7 @@ const emailVerificationEmail = (user, emailVerificationLink, EMAIL_FROM) => {
                                       <h2 style="color: #2A2A2A;">Action Required: Email Verification</h2>
 
                                       <p style="color: #4A4A4A; font-size: 14px;">Hi, <span style="font-weight: bold;">${user.name}</span>, Welcome to Expense Management System.<br>
-                                      Thank you for registering on our <a href="https://expense-management-system-prakash.netlify.app/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> App.</p>
+                                      Thank you for registering on our <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> App.</p>
 
                                       <p style="color: #4A4A4A; font-size: 14px;">Your email address needs to be verified before you can use your account.<br>
                                       This verification link will expire in <span style="font-weight: bold;">10 minutes.</span></p>

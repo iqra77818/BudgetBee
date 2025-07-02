@@ -20,7 +20,7 @@ const resetPasswordEmail = (user, resetPasswordLink, EMAIL_FROM) => {
 
                                         <p style="color: #4A4A4A; font-size: 14px;">Hi, <span style="font-weight: bold;">${user.name}</span>,</p>
 
-                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you (or someone else) requested the reset of your <a href="https://expense-management-system-prakash.netlify.app/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> user account password.</p>
+                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you (or someone else) requested the reset of your <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> user account password.</p>
 
                                         <p style="color: #4A4A4A; font-size: 14px;">Click the button below to reset your password:</p>
 

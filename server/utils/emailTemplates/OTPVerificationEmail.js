@@ -20,7 +20,7 @@ const OTPVerificationEmail = (user, OTP, EMAIL_FROM) => {
 
                                         <p style="color: #4A4A4A; font-size: 14px;">Hi, <span style="font-weight: bold;">${user.name}!</span>, Welcome to Expense Management System.</p>
 
-                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you have created a new user account on our <a href="https://expense-management-system-prakash.netlify.app/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a>.<br>
+                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you have created a new user account on our <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a>.<br>
                                         Please enter the one-time password (OTP) provided below to verify your identity.<br>
                                         Your OTP will expire in <span style="font-weight: bold;">10 minutes.</span></p>
 

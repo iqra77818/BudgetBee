@@ -9,13 +9,13 @@ const Footer = () => {
           All rights reserved &copy; 2025.
         </h4>
         <p className="text-center mt-3">
-          <a
+           {/*<a
             target="_blank"
             rel="noopener noreferrer"
             href="https://prakashsawportfolio.netlify.app/"
           >
             About
-          </a>
+          </a>*/}
           |<Link to="/contact-us">Contact</Link>|
           <Link to="/privacy-policy">Privacy Policy</Link>
         </p>

@@ -20,7 +20,7 @@ const changedPasswordSuccess = (user, EMAIL_FROM) => {
 
                                         <p style="color: #4A4A4A; font-size: 14px;">Hi, <span style="font-weight: bold;">${user.name}</span>,</p>
 
-                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you have changed the password of your <a href="https://expense-management-system-prakash.netlify.app/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> user account.</p>
+                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you have changed the password of your <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">Expense Management System</a> user account.</p>
 
                                         <p style="color: #4A4A4A; font-size: 14px;">If this was you, you can safely ignore this email.<br>
                                         If not, please reach out to us at <a href="mailto:${EMAIL_FROM}" style="color: #4CAF50; text-decoration: none;">email us</a> for help.</p>
