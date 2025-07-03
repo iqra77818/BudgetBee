@@ -21,6 +21,6 @@
 
 ## Tech Stack
 
-Frontend: React.js, Bootstrap, CSS
-Backend: Node.js, Express.js, Nodemailer
-Database: MongoDB
+1. Frontend: React.js, Bootstrap, CSS
+2. Backend: Node.js, Express.js, Nodemailer
+3. Database: MongoDB
