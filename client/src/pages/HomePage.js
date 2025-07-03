@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Form,
   Input,
@@ -42,7 +42,6 @@ const HomePage = () => {
 
   //table data
   const columns = [
-    // Serial number is added to the table
     {
       title: "S.No",
       dataIndex: "sno",
@@ -99,8 +98,8 @@ const HomePage = () => {
     },
   ];
 
-  //getall transactions
-  const getAllTransactions = async () => {
+  // Memoized getAllTransactions with useCallback to avoid ESLint warning
+  const getAllTransactions = useCallback(async () => {
     try {
       setTrasactionError(null);
       setLoading(true);
@@ -128,11 +127,12 @@ const HomePage = () => {
       setTrasactionError(getResponseError(error));
       message.error("Fetch Issue With Transactions...!");
     }
-  };
-  //useEffect Hook
+  }, [frequency, selectedDate, type]);
+
+  //useEffect Hook now depends only on getAllTransactions
   useEffect(() => {
     getAllTransactions();
-  }, [frequency, selectedDate, type, setAllTransection]);
+  }, [getAllTransactions]);
 
   //delete handler
   const handleDelete = async (record) => {
@@ -164,7 +164,6 @@ const HomePage = () => {
       );
 
       setLoading(false);
-      //For auto update on client if any update or edit be done
       getAllTransactions();
       message.success("Transaction Deleted successfully...!", {
         duration: 2,
@@ -349,119 +348,114 @@ const HomePage = () => {
                 }}
               />
             </div>
-            <div>
+            <div className="add-btn">
               <button
                 className="btn btn-primary"
-                onClick={() => {
-                  setEditable(null);
-                  setShowModal(true);
-                }}
+                onClick={() => setShowModal(true)}
               >
-                Add New
+                ADD NEW
               </button>
             </div>
-            <div>
+            <div className="export-btn">
               <button
-                className="btn btn-secondary trasctn-exprt-btn"
+                className="btn btn-primary"
                 onClick={exportToExcel}
+                disabled={allTransection.length === 0}
               >
-                Export to Excel <ExportOutlined />
+                Export to Excel
+                <ExportOutlined />
               </button>
             </div>
           </div>
+
           <div className="content">
-            {viewData === "table" ? (
-              <Table columns={columns} dataSource={allTransection} />
+            {loading ? (
+              <h4>Loading...</h4>
+            ) : viewData === "table" ? (
+              <Table columns={columns} dataSource={allTransection} rowKey="transactionId" />
             ) : (
               <Analytics allTransection={allTransection} />
             )}
           </div>
+        </div>
+
+        {showModal && (
           <Modal
-            title={editable ? "Edit Transaction" : "Add Transection"}
-            open={showModal}
-            onCancel={() => setShowModal(false)}
-            destroyOnClose={true}
-            footer={false}
+            title={editable ? "Edit Transaction" : "Add Transaction"}
+            visible={showModal}
+            onCancel={() => {
+              setShowModal(false);
+              setEditable(null);
+            }}
+            footer={null}
           >
             <Form
               layout="vertical"
               onFinish={handleSubmit}
-              initialValues={editable}
+              initialValues={{
+                amount: editable ? editable.amount : "",
+                type: editable ? editable.type : "",
+                category: editable ? editable.category : "",
+                date: editable ? moment(editable.date) : null,
+                refrence: editable ? editable.refrence : "",
+                description: editable ? editable.description : "",
+              }}
             >
-              <Form.Item label="Amount" name="amount">
-                <Input type="text" required />
+              <Form.Item
+                label="Amount"
+                name="amount"
+                rules={[{ required: true, message: "Please input amount!" }]}
+              >
+                <Input type="number" />
               </Form.Item>
-              <Form.Item label="Type" name="type">
+
+              <Form.Item
+                label="Type"
+                name="type"
+                rules={[{ required: true, message: "Please select type!" }]}
+              >
                 <Select>
                   <Select.Option value="Income">Income</Select.Option>
                   <Select.Option value="Expense">Expense</Select.Option>
                 </Select>
               </Form.Item>
-              <Form.Item label="Category" name="category">
-                <Select>
-                  <Select.Option value="Income in Salary">
-                    Income in Salary
-                  </Select.Option>
-                  <Select.Option value="Income in Part Time">
-                    Income in Part Time
-                  </Select.Option>
-                  <Select.Option value="Income in Project">
-                    Income in Project
-                  </Select.Option>
-                  <Select.Option value="Income in Freelancing">
-                    Income in Freelancing
-                  </Select.Option>
-                  <Select.Option value="Expense in Tip">
-                    Expense in Tip
-                  </Select.Option>
-                  <Select.Option value="Expense in Stationary">
-                    Expense in Stationary
-                  </Select.Option>
-                  <Select.Option value="Expense in Food">
-                    Expense in Food
-                  </Select.Option>
-                  <Select.Option value="Expense in Movie">
-                    Expense in Movie
-                  </Select.Option>
-                  <Select.Option value="Expense in Bills">
-                    Expense in Bills
-                  </Select.Option>
-                  <Select.Option value="Expense in Medical">
-                    Expense in Medical
-                  </Select.Option>
-                  <Select.Option value="Expense in Fees">
-                    Expense in Fees
-                  </Select.Option>
-                  <Select.Option value="Expense in TAX">
-                    Expense in TAX
-                  </Select.Option>
-                </Select>
+
+              <Form.Item
+                label="Category"
+                name="category"
+                rules={[{ required: true, message: "Please input category!" }]}
+              >
+                <Input />
               </Form.Item>
-              <Form.Item label="Date" name="date">
-                <Input type="date" />
+
+              <Form.Item
+                label="Date"
+                name="date"
+                rules={[{ required: true, message: "Please select date!" }]}
+              >
+                <DatePicker />
               </Form.Item>
-              <Form.Item label="Refrence" name="refrence">
-                <Input type="text" required />
+
+              <Form.Item label="Reference" name="refrence">
+                <Input />
               </Form.Item>
+
               <Form.Item label="Description" name="description">
-                <Input type="text" required />
+                <Input />
               </Form.Item>
-              <div className="d-flex justify-content-end">
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  disabled={loading}
-                >
-                  {" "}
-                  SAVE
+
+              <Form.Item>
+                <button className="btn btn-primary" type="submit" disabled={loading}>
+                  {loading ? "Saving..." : "Save"}
                 </button>
-              </div>
+              </Form.Item>
             </Form>
           </Modal>
-        </div>
+        )}
       </Layout>
     </>
   );
 };
 
 export default HomePage;
+
