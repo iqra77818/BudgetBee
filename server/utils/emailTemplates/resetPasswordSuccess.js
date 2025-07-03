@@ -20,7 +20,7 @@ const resetPasswordSuccess = (user, EMAIL_FROM) => {
 
                                         <p style="color: #4A4A4A; font-size: 14px;">Hi, <span style="font-weight: bold;">${user.name}</span>,</p>
 
-                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this email because you (or someone else) have successfully reset the password of your <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">BudgetBee</a> user account.</p>
+                                        <p style="color: #4A4A4A; font-size: 14px;">You are receiving this email because you (or someone else) have successfully reset the password of your <a href="https://budgetbee-s.netlify.app/" style="color: #4CAF50; text-decoration: none;">BudgetBee</a> user account.</p>
 
                                         <p style="color: #4A4A4A; font-size: 14px;">If this was you, you can safely ignore this email.<br>
                                         If not, please reach out to us at <a href="mailto:${EMAIL_FROM}" style="color: #4CAF50; text-decoration: none;">email us</a> for help.</p>

@@ -22,7 +22,7 @@ const contactUsMessageSentSuccess = (user, EMAIL_FROM) => {
 
                                         <p style="color: #4A4A4A; font-size: 14px;">You are receiving this because you have sent a message to us.<br>
                                         We received your message and our team will reach out to you soon.<br>
-                                        Till then, explore our application <a href="http://localhost:3000/" style="color: #4CAF50; text-decoration: none;">BudgetBee</a>.</p>
+                                        Till then, explore our application <a href="https://budgetbee-s.netlify.app/" style="color: #4CAF50; text-decoration: none;">BudgetBee</a>.</p>
 
                                         <p style="color: #4A4A4A; font-size: 14px;">If you have any queries, please reach out to us at <a href="mailto:${EMAIL_FROM}" style="color: #4CAF50; text-decoration: none;">email us</a>.</p>
 
