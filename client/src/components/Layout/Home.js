@@ -3,7 +3,7 @@ import Header1 from "./Header1";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import "./Home.css";
-import homepageImg from "../../../src/Images/homepage-img.png";
+
 
 const Home = () => {
   const navigate = useNavigate();
